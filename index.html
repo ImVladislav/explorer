@@ -7,7 +7,18 @@
     <link rel="stylesheet" href="styles.css"> <!-- Підключення CSS -->
 </head>
 <body>
-    <main  class="instagram" ontouchstart="">
+    <!-- Модальне вікно, що з'являється при завантаженні -->
+    <div id="startup-modal" class="startup-modal">
+        <div class="startup-modal-content">
+            <img src="image.webp" alt="Windows 95 Logo" class="startup-image"> <!-- Замініть на URL або шлях до вашого зображення -->
+            <p class="startup-text">Enter</p>
+            <button id="startup-button">
+                <img src="power-button.png" alt="Power Button" class="power-button-image"> <!-- Замініть на URL або шлях до вашого зображення -->
+            </button>
+        </div>
+    </div>
+
+    <main class="instagram" ontouchstart="">
         <div class="inner">
             <header class="bar">
                 <h1>Explorer.exe</h1>
@@ -24,36 +35,26 @@
                     <li><a href="/" target="_blank">X</a></li>
                 </ul>
             </nav>
-
-
-            
             <div class="container">
                 <div class="content">
-  
-                    
-                    
                     <div class="content-section home">
                         <div class="feed-type" id="home">
-                                <div class="feed">
-                                    <div id="modal" class="modal">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <span class="modal-title">ERROR</span>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img style="width: 40px;" src="1.png" alt="Error Icon">
-                                                <!-- <p>Error 404: Sorry, but the meme you're looking for has been banned. If you want to visit this meme, copy the link below:</p> -->
-                                                <!-- <div class="copy-text" id="copy-text">https://imgflip.com/i/57rro3</div> -->
-
-                                                <div id="copy-text">https://imgflip.com/i/57rro3</div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button id="copy-button">Copy</button>
-                                                <button id="close-modal">Close</button>
-                                            </div>
+                            <div class="feed">
+                                <div id="modal" class="modal">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <span class="modal-title">ERROR</span>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img style="width: 40px;" src="1.png" alt="Error Icon">
+                                            <div id="copy-text">https://imgflip.com/i/57rro3</div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button id="copy-button">Copy</button>
+                                            <button id="close-modal">Close</button>
                                         </div>
                                     </div>
-                                <!-- Тут розміщений ваш контент із фігурами -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -66,32 +67,90 @@
 				</div>
 			</div>
 		</div>
-	</div>
-</main>
-<script>
+	</main>
 
-document.getElementById('address').addEventListener('click', function () {
-    document.getElementById('modal').style.display = 'flex';
-});
+    <audio id="startup-music" src="music.mp3"></audio>
 
-document.getElementById('close-modal').addEventListener('click', function () {
-    document.getElementById('modal').style.display = 'none';
-});
+    <script>
+        // Показати модальне вікно при завантаженні сторінки
+        window.onload = function () {
+            const startupModal = document.getElementById('startup-modal');
+            startupModal.style.display = 'flex';
 
-document.getElementById('search-button').addEventListener('click', function () {
-    document.getElementById('modal').style.display = 'flex';
-});
+            const startupButton = document.getElementById('startup-button');
+            const audio = document.getElementById('startup-music');
 
-document.getElementById('copy-button').addEventListener('click', function () {
-    const copyText = document.getElementById('copy-text').textContent;
+            startupButton.addEventListener('click', function () {
+                startupModal.style.display = 'none';
 
-    // Копіювання тексту в буфер обміну
-    navigator.clipboard.writeText(copyText).then(() => {
-        alert('Link copied to clipboard!');
-    }).catch(err => {
-        console.error('Failed to copy: ', err);
-    });
-});
-</script>
+                // Відтворити музику
+                audio.play().catch(err => {
+                    console.error('Failed to play audio:', err);
+                });
+            });
+        };
+
+        // Інші існуючі функції
+        document.getElementById('address').addEventListener('click', function () {
+            document.getElementById('modal').style.display = 'flex';
+        });
+
+        document.getElementById('close-modal').addEventListener('click', function () {
+            document.getElementById('modal').style.display = 'none';
+        });
+
+        document.getElementById('search-button').addEventListener('click', function () {
+            document.getElementById('modal').style.display = 'flex';
+        });
+
+        document.getElementById('copy-button').addEventListener('click', function () {
+            const copyText = document.getElementById('copy-text').textContent;
+
+            // Копіювання тексту в буфер обміну
+            navigator.clipboard.writeText(copyText).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
+
+    <style>
+        /* Стилі для стартового модального вікна */
+        .startup-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .startup-modal-content {
+            text-align: center;
+            color: white;
+        }
+
+        .startup-image {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .startup-text {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .power-button-image {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+    </style>
 </body>
 </html>
