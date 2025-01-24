@@ -13,7 +13,7 @@
             <img src="image.webp" alt="Windows 95 Logo" class="startup-image"> <!-- Замініть на URL або шлях до вашого зображення -->
             <p class="startup-text">Enter</p>
             <button id="startup-button">
-                <img src="power-button.png" alt="Power Button" class="power-button-image"> <!-- Замініть на URL або шлях до вашого зображення -->
+                <img src="pow.png" alt="Power Button" class="power-button-image"> <!-- Замініть на URL або шлях до вашого зображення -->
             </button>
         </div>
     </div>
@@ -69,7 +69,13 @@
 		</div>
 	</main>
 
-    <audio id="startup-music" src="music.mp3"></audio>
+    <audio id="startup-music" src="music.mp3" loop></audio>
+
+    <button id="toggle-music" class="music-button">
+        <p id="vol">volume 100</p>
+    
+        <!-- <img src="speaker.png" alt="Speaker Icon" id="speaker-icon"> Заміна іконки -->
+    </button>
 
     <script>
         // Показати модальне вікно при завантаженні сторінки
@@ -89,6 +95,24 @@
                 });
             });
         };
+
+        // Кнопка для ввімкнення/вимкнення музики
+        const toggleMusicButton = document.getElementById('toggle-music');
+        const speakerIcon = document.getElementById('speaker-icon');
+        const audio = document.getElementById('startup-music');
+        const vol = document.getElementById('vol');
+
+        toggleMusicButton.addEventListener('click', function () {
+            if (audio.paused) {
+                audio.play();
+                speakerIcon.src = 'speaker.png'; // Іконка увімкненого звуку
+                vol="volume 100"
+            } else {
+                audio.pause();
+                speakerIcon.src = 'mute.png'; // Іконка вимкненого звуку
+                vol="volume 0"
+            }
+        });
 
         // Інші існуючі функції
         document.getElementById('address').addEventListener('click', function () {
@@ -150,6 +174,21 @@
             width: 50px;
             height: 50px;
             cursor: pointer;
+        }
+
+        /* Стиль для кнопки в правому нижньому куті */
+        .music-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .music-button img {
+            width: 40px;
+            height: 40px;
         }
     </style>
 </body>
