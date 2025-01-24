@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css"> <!-- Підключення CSS -->
 </head>
 <body>
-    <main class="instagram" ontouchstart="">
+    <main  class="instagram" ontouchstart="">
         <div class="inner">
             <header class="bar">
                 <h1>Explorer.exe</h1>
@@ -24,66 +24,48 @@
                     <li><a href="/" target="_blank">X</a></li>
                 </ul>
             </nav>
-            <div class="address-bar">
-                <label for="address">Address:</label>
-                <input type="text" id="address" value="http://www.msn.com">
-                <button class="dropdown"></button>
-            </div>
+
+
             
-            <div id="modal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="modal-title">MEME BANNED BY MICROSOFT</span>
-                    </div>
-                    <div class="modal-body">
-                        <img style="width: 40px;" src="1.png" alt="Error Icon">
-                        <p>Error 404: Sorry, but the meme you're looking for has been banned. If you want to visit this meme, copy the link below:</p>
-                        <div class="copy-text" id="copy-text">https://imgflip.com/i/57rro3</div>
-                    </div>
-                    <div class="modal-footer">
-                        <button id="copy-button">Copy</button>
-                        <button id="close-modal">Close</button>
-                    </div>
-                </div>
-            </div>
             <div class="container">
                 <div class="content">
+  
+                    
+                    
                     <div class="content-section home">
-                        <div class="feed">
-                            <div class="feed-type" id="home">
+                        <div class="feed-type" id="home">
+                                <div class="feed">
+                                    <div id="modal" class="modal">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <span class="modal-title">MEME BANNED BY MICROSOFT</span>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img style="width: 40px;" src="1.png" alt="Error Icon">
+                                                <p>Error 404: Sorry, but the meme you're looking for has been banned. If you want to visit this meme, copy the link below:</p>
+                                                <div class="copy-text" id="copy-text">https://imgflip.com/i/57rro3</div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="copy-button">Copy</button>
+                                                <button id="close-modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <!-- Тут розміщений ваш контент із фігурами -->
                             </div>
                         </div>
                     </div>
-                    <div  style="height: 70vh;"  class="content-section profile">
-                        <!-- <header id="info">
-                            <h2>
-                                <a href="https://instagram.com/gabriellewee">gabriellewee</a>
-                            </h2>
-                            <hr>
-                            <div class="info">
-                                <div class="avatar">
-                                    <img src="https://gabriellew.ee/static/images/avatars/discord@2x.jpg" alt="gabriellewee">
-                                </div>
-                                <ul>
-                                    <li><strong>25</strong><span>posts</span></li>
-                                    <li><strong>800</strong><span>followers</span></li>
-                                    <li><strong>900</strong><span>following</span></li>
-                                    <li>
-                                        <button>Follow</button>
-                                        <button></button>
-                                    </li>
-                                </ul>
-                                <div class="desc">
-                                    <p>web dev • ui design • game art • plants 🌿 <br>🪴 @ellocasia • 🐱 @greyalphonsecat <br>👩🏻‍💻 front-end developer at apple  </p>
-                                </div>
-                            </div>
-                        </header>
-                        <div class="feed">
-						<div class="feed-type" id="profile">
-
-	
-						</div> -->
+                    <div  style="    height: 70vh;
+                    display: flex
+                ;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;">
+                        <div class="address-bar">
+                            <!-- <label for="address">Address:</label> -->
+                            <input type="text" id="address" value="type here...">
+                            <!-- <button class="dropdown">▼</button> -->
+                        </div>
 					</div>
 				</div>
 			</div>
