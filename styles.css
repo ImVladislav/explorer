@@ -116,9 +116,10 @@ body {
   background-color: #aa0000; /* Темніший червоний при наведенні */
 }
 .menu {
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
   padding: 6px;
-  border-bottom: 1px solid #a6a6a6;
+  background-color: #c0c0c0;
+  border: 2px solid #808080;
 }
 
 .menu ul {
