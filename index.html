@@ -24,12 +24,28 @@
                     <li><a href="/" target="_blank">X</a></li>
                 </ul>
             </nav>
+            <div class="address-bar">
+                <label for="address">Address:</label>
+                <input type="text" id="address" value="http://www.msn.com">
+                <button class="dropdown"></button>
+            </div>
             
-                            <div class="address-bar">
-                                <label for="address">Address:</label>
-                                <input type="text" id="address" value="http://www.msn.com">
-                                <button class="dropdown"></button>
-                            </div>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title">MEME BANNED BY MICROSOFT</span>
+                    </div>
+                    <div class="modal-body">
+                        <img style="width: 40px;" src="1.png" alt="Error Icon">
+                        <p>Error 404: Sorry, but the meme you're looking for has been banned. If you want to visit this meme, copy the link below:</p>
+                        <div class="copy-text" id="copy-text">https://imgflip.com/i/57rro3</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="copy-button">Copy</button>
+                        <button id="close-modal">Close</button>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="content">
                     <div class="content-section home">
@@ -39,8 +55,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="content-section profile">
-                        <header id="info">
+                    <div  style="height: 70vh;"  class="content-section profile">
+                        <!-- <header id="info">
                             <h2>
                                 <a href="https://instagram.com/gabriellewee">gabriellewee</a>
                             </h2>
@@ -67,12 +83,33 @@
 						<div class="feed-type" id="profile">
 
 	
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </main>
+<script>
+
+document.getElementById('address').addEventListener('click', function () {
+    document.getElementById('modal').style.display = 'flex';
+});
+
+document.getElementById('close-modal').addEventListener('click', function () {
+    document.getElementById('modal').style.display = 'none';
+});
+
+document.getElementById('copy-button').addEventListener('click', function () {
+    const copyText = document.getElementById('copy-text').textContent;
+
+    // Копіювання тексту в буфер обміну
+    navigator.clipboard.writeText(copyText).then(() => {
+        alert('Link copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+});
+</script>
 </body>
 </html>
